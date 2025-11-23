@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knight's Academy | Master the Game</title>
+    
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1f2937;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+        }
+
+        .chess-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .glass-panel-dark {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation for Hero Pieces */
+        .float-piece {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="chess-pattern">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-gray-900 text-white shadow-xl sticky top-0 z-50 border-b border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-chess-knight text-4xl text-amber-500"></i>
+                    <div class="flex flex-col">
+                        <span class="font-black text-xl tracking-wider uppercase leading-none">Knight's</span>
+                        <span class="text-xs text-gray-400 tracking-widest uppercase">Academy</span>
+                    </div>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center font-semibold">
+                    <a href="#home" class="hover:text-amber-400 transition duration-300 border-b-2 border-transparent hover:border-amber-400 pb-1">Home</a>
+                    <a href="#courses" class="hover:text-amber-400 transition duration-300 border-b-2 border-transparent hover:border-amber-400 pb-1">Video Courses</a>
+                    <a href="#gallery" class="hover:text-amber-400 transition duration-300 border-b-2 border-transparent hover:border-amber-400 pb-1">Gallery</a>
+                    <a href="#about" class="hover:text-amber-400 transition duration-300 border-b-2 border-transparent hover:border-amber-400 pb-1">About Us</a>
+                    <button onclick="playClickSound()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white px-6 py-2.5 rounded-full font-bold transition transform hover:scale-105 shadow-lg hover:shadow-amber-500/50">
+                        Join Now
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+            <a href="#home" class="block px-4 py-3 text-sm hover:bg-gray-700 border-l-4 border-transparent hover:border-amber-500">Home</a>
+            <a href="#courses" class="block px-4 py-3 text-sm hover:bg-gray-700 border-l-4 border-transparent hover:border-amber-500">Video Courses</a>
+            <a href="#gallery" class="block px-4 py-3 text-sm hover:bg-gray-700 border-l-4 border-transparent hover:border-amber-500">Gallery</a>
+            <a href="#about" class="block px-4 py-3 text-sm hover:bg-gray-700 border-l-4 border-transparent hover:border-amber-500">About Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative py-24 lg:py-36 overflow-hidden flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                 alt="Chess Board Background" 
+                 class="w-full h-full object-cover brightness-[0.35]">
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="glass-panel-dark p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-700/50">
+                <div class="mb-6 inline-block">
+                    <i class="fa-solid fa-chess-king text-7xl text-amber-500 float-piece drop-shadow-lg"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
+                    Make Your Next Move <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500">Legendary</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Unlock the secrets of grandmasters. Interactive lessons, real-time analysis, and a community that challenges you to grow.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#courses" class="bg-amber-500 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-400 transition shadow-xl shadow-amber-900/20 transform hover:-translate-y-1">
+                        <i class="fa-solid fa-play mr-2"></i> Start Watching
+                    </a>
+                    <a href="#about" class="bg-gray-800/50 backdrop-blur-sm border border-gray-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-700 transition transform hover:-translate-y-1">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUDIO COMPONENT SECTION -->
+    <section class="relative z-20 -mt-10 px-4">
+        <div class="max-w-3xl mx-auto glass-panel bg-white p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-6 border-t-4 border-amber-500">
+            <div class="bg-amber-100 p-4 rounded-full text-amber-600">
+                <i class="fa-solid fa-podcast text-2xl"></i>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <h3 class="text-lg font-bold text-gray-800">Featured Podcast: Perpetual Chess</h3>
+                <p class="text-sm text-gray-500 mb-2">Adult Improver Series: Strategies for busy players.</p>
+                <audio controls class="w-full h-8">
+                    <!-- UPDATED: Direct link to a real Chess Podcast episode (Perpetual Chess Ep. 166) -->
+                    <source src="https://traffic.libsyn.com/perpetualchess/Ep._166_Adult_Improver_Stacia_Melton.mp3" type="audio/mpeg">
+                    Your browser does not support audio.
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO COURSE SECTION -->
+    <section id="courses" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-gray-900 mb-4">Featured Video Lessons</h2>
+            <div class="w-24 h-1.5 bg-amber-500 mx-auto rounded-full"></div>
+            <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">Watch our expert breakdowns. We've optimized the player for full-screen analysis.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+            <!-- Video Card 1 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col">
+                <!-- Aspect Ratio Container (16:9) - FIXES CROPPING -->
+                <div class="aspect-video bg-black relative group">
+                    <video controls class="w-full h-full">
+                        <source src="C:\Users\Administrator\Desktop\Multimedia Projects\Screen Recording 2025-11-03 164725.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Beginner</span>
+                        <!-- Time removed here -->
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">My game Vs General Zod</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed flex-1">A deep dive into my recent match against a tough opponent. Watch how we handle the opening traps.</p>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col">
+                <!-- Aspect Ratio Container (16:9) - FIXES CROPPING -->
+                <div class="aspect-video bg-black relative group">
+                    <video controls class="w-full h-full">
+                        <!-- UPDATED PATH BELOW -->
+                        <source src="C:\Users\Administrator\Desktop\Multimedia Projects\Screen Recording 2025-07-30 141123.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Intermediate</span>
+                        <!-- Time removed here -->
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Can You Solve This Puzzle?</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed flex-1">Spot the winning move! Watch the recording carefully and find the hidden tactic before I reveal it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMAGE GALLERY GRID -->
+    <section id="gallery" class="bg-gray-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Grandmaster Gallery</h2>
+                <div class="w-24 h-1.5 bg-amber-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-400">Moments from the world championship history.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Gallery Item 1 -->
+                <div class="relative group overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Chess Piece" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <p class="text-amber-400 font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300">Strategy</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="relative group overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Chess Board" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <p class="text-amber-400 font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300">Focus</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="relative group overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Chess Setup" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <p class="text-amber-400 font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300">History</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="relative group overflow-hidden rounded-xl aspect-square cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1560174038-da43ac74f01b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Checkmate" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <p class="text-amber-400 font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300">Victory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEXT / ABOUT SECTION -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-black mb-6 text-gray-900">Why Learn With Us?</h2>
+                <div class="space-y-6 text-gray-600 text-lg">
+                    <p>
+                        At <span class="font-bold text-amber-600 bg-amber-100 px-2 rounded">Knight's Academy</span>, we believe chess is more than just a game, it's a tool for sharpening the mind. Our multimedia curriculum is designed to keep you engaged.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start"><div class="mt-1 mr-3 flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i class="fa-solid fa-check text-sm"></i></div> Interactive Video Lessons</li>
+                        <li class="flex items-start"><div class="mt-1 mr-3 flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i class="fa-solid fa-check text-sm"></i></div> Daily Puzzle Challenges</li>
+                        <li class="flex items-start"><div class="mt-1 mr-3 flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i class="fa-solid fa-check text-sm"></i></div> Community Tournaments</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="md:w-1/2 w-full">
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-10 rounded-3xl border border-amber-100 relative shadow-inner">
+                    <i class="fa-solid fa-quote-left text-6xl text-amber-200 absolute top-6 left-6 -z-10"></i>
+                    <p class="text-xl italic font-serif text-gray-800 text-center mt-4 leading-relaxed">
+                        "Chess helps you to concentrate, improve your logic. It teaches you to play by the rules and take responsibility for your actions, how to problem solve in an uncertain environment."
+                    </p>
+                    <div class="mt-6 flex items-center justify-center space-x-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
+                             <!-- UPDATED IMAGE PATH -->
+                             <img src="C:\Users\Administrator\Desktop\Multimedia Projects\Screenshot 2025-11-23 163339.png" class="w-full h-full object-cover" alt="Kasparov">
+                        </div>
+                        <p class="font-bold text-amber-800">- Garry Kasparov</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FORM -->
+    <section class="bg-gray-50 py-20 border-t border-gray-200">
+        <div class="max-w-lg mx-auto px-4">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                <div class="text-center mb-8">
+                     <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                     </div>
+                    <h2 class="text-3xl font-bold text-gray-900">Book a Free Lesson</h2>
+                    <p class="text-gray-500 mt-2">Start your journey to mastery today.</p>
+                </div>
+                
+                <!-- UPDATED FORM: Standard HTML Submission (Works from Desktop) -->
+                <form action="https://formsubmit.co/mohamednoorhassan298@gmail.com" method="POST" class="space-y-5">
+                    
+                    <!-- Hidden settings for the email -->
+                    <input type="hidden" name="_subject" value="New Chess Student Request!">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-user text-gray-400"></i>
+                            </div>
+                            <input class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" name="name" type="text" placeholder="Your Name" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                         <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-at text-gray-400"></i>
+                            </div>
+                            <input class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" name="email" type="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="level">Skill Level</label>
+                        <div class="relative">
+                            <select class="w-full pl-3 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition appearance-none bg-white" name="level">
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Advanced</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-4 rounded-lg shadow-lg hover:shadow-amber-500/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition duration-300 transform hover:-translate-y-0.5" type="submit">
+                        Book Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- HELPLINE / STAFF CONTACT SECTION -->
+    <section class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-block p-4 rounded-full bg-gray-800 mb-4">
+                <i class="fa-solid fa-headset text-3xl text-amber-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Student Helpline & Support</h3>
+            <p class="text-gray-400 mb-6">Have technical issues or need to reach our staff directly?</p>
+            
+            <div class="bg-gray-800 rounded-xl p-6 inline-flex items-center space-x-4 border border-gray-700 hover:border-amber-500 transition duration-300 group cursor-pointer">
+                <div class="bg-amber-500/20 p-3 rounded-full group-hover:bg-amber-500 transition">
+                    <i class="fa-solid fa-envelope text-amber-500 group-hover:text-white text-xl"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Direct Email Support</p>
+                    <a href="mailto:mohamednoorhassan298@gmail.com" class="text-white font-bold text-lg hover:text-amber-400 transition">
+                        mohamednoorhassan298@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start space-x-2 mb-2">
+                    <i class="fa-solid fa-chess-knight text-2xl text-amber-500"></i>
+                    <span class="text-2xl font-bold text-white">Knight's Academy</span>
+                </div>
+                <!-- Copyright text removed here -->
+            </div>
+            <div class="flex space-x-8">
+                <a href="https://www.facebook.com/profile.php?id=100063710425759" target="_blank" class="hover:text-amber-500 transition transform hover:scale-110"><i class="fa-brands fa-facebook text-2xl"></i></a>
+                <!-- Other social links removed here -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // NOTE: The complex 'handleSubmit' function has been removed.
+        // We are now using standard HTML submission which works better 
+        // when running the file directly from your computer (C:/Users...).
+
+        // Sound Effect Simulation
+        function playClickSound() {
+            // This is where you would trigger a real .mp3 if you had one loaded
+            console.log("Click sound effect triggered");
+        }
+    </script>
+</body>
+</html>
