@@ -145,7 +145,7 @@
                 <h3 class="text-lg font-bold text-gray-800">Featured Podcast: Perpetual Chess</h3>
                 <p class="text-sm text-gray-500 mb-2">Adult Improver Series: Strategies for busy players.</p>
                 <audio controls class="w-full h-8">
-                    <!-- UPDATED: Direct link to a real Chess Podcast episode (Perpetual Chess Ep. 166) -->
+                    <!-- Audio link remains an external URL and is correct -->
                     <source src="https://traffic.libsyn.com/perpetualchess/Ep._166_Adult_Improver_Stacia_Melton.mp3" type="audio/mpeg">
                     Your browser does not support audio.
                 </audio>
@@ -167,7 +167,8 @@
                 <!-- Aspect Ratio Container (16:9) - FIXES CROPPING -->
                 <div class="aspect-video bg-black relative group">
                     <video controls class="w-full h-full">
-                        <source src="C:\Users\Administrator\Desktop\Multimedia Projects\Screen Recording 2025-11-03 164725.mp4" type="video/mp4">
+                        <!-- PATH FIXED: Now includes the subfolder name -->
+                        <source src="Multimedia Projects/Screen Recording 2025-11-03 164725.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -186,8 +187,8 @@
                 <!-- Aspect Ratio Container (16:9) - FIXES CROPPING -->
                 <div class="aspect-video bg-black relative group">
                     <video controls class="w-full h-full">
-                        <!-- UPDATED PATH BELOW -->
-                        <source src="C:\Users\Administrator\Desktop\Multimedia Projects\Screen Recording 2025-07-30 141123.mp4" type="video/mp4">
+                        <!-- PATH FIXED: Now includes the subfolder name -->
+                        <source src="Multimedia Projects/Screen Recording 2025-07-30 141123.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -269,8 +270,8 @@
                     </p>
                     <div class="mt-6 flex items-center justify-center space-x-3">
                         <div class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
-                             <!-- UPDATED IMAGE PATH -->
-                             <img src="C:\Users\Administrator\Desktop\Multimedia Projects\Screenshot 2025-11-23 163339.png" class="w-full h-full object-cover" alt="Kasparov">
+                             <!-- PATH FIXED: Now includes the subfolder name -->
+                             <img src="Multimedia Projects/Screenshot 2025-11-23 163339.png" class="w-full h-full object-cover" alt="Kasparov">
                         </div>
                         <p class="font-bold text-amber-800">- Garry Kasparov</p>
                     </div>
@@ -291,7 +292,7 @@
                     <p class="text-gray-500 mt-2">Start your journey to mastery today.</p>
                 </div>
                 
-                <!-- UPDATED FORM: Standard HTML Submission (Works from Desktop) -->
+                <!-- This form uses the FormSubmit service which works once you confirm your email. -->
                 <form action="https://formsubmit.co/mohamednoorhassan298@gmail.com" method="POST" class="space-y-5">
                     
                     <!-- Hidden settings for the email -->
@@ -386,10 +387,6 @@
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
-
-        // NOTE: The complex 'handleSubmit' function has been removed.
-        // We are now using standard HTML submission which works better 
-        // when running the file directly from your computer (C:/Users...).
 
         // Sound Effect Simulation
         function playClickSound() {
